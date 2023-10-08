@@ -11,8 +11,8 @@ import Flutter
      
       weak var registrar = self.registrar(forPlugin: "native-views-1")
 
-              let factory = FLNativeViewFactory(messenger: registrar!.messenger())
-              self.registrar(forPlugin: "native-views-2")!.register(
+      let factory = FLNativeViewFactory(messenger: registrar!.messenger())
+      registrar?.register(
                   factory,
                   withId: "text-native-view")
       
