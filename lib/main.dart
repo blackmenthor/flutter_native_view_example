@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_platform/native_view_android.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,10 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            const SizedBox(height: 16.0,),
             const Text(
               'This is a Flutter native',
+            ),
+            ...List.generate(5, (_)
+              => const Padding(
+                padding: EdgeInsets.only(top: 16.0),
+                child: NativeView(),
+              ),
             ),
           ],
         ),
