@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_platform/email_link_text.dart';
 import 'package:flutter_native_platform/native_view_android.dart';
 
 void main() {
@@ -51,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: NativeView(),
               ),
             ),
+            const EmailLinkText(),
           ],
         ),
       ),

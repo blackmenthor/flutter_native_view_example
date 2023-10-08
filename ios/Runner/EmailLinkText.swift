@@ -1,5 +1,5 @@
 //
-//  FLNativeView.swift
+//  EmailLinkText.swift
 //  Runner
 //
 //  Created by Angga Dwi Arifandi on 08/10/23.
@@ -10,7 +10,7 @@ import Flutter
 import UIKit
 import OSLog
 
-class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
+class EmailLinkTextFactory: NSObject, FlutterPlatformViewFactory {
     private var messenger: FlutterBinaryMessenger
 
     init(messenger: FlutterBinaryMessenger) {
@@ -23,7 +23,7 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
         viewIdentifier viewId: Int64,
         arguments args: Any?
     ) -> FlutterPlatformView {
-        return FLNativeView(
+        return EmailLinkText(
             frame: frame,
             viewIdentifier: viewId,
             arguments: args,
@@ -36,7 +36,7 @@ class FLNativeViewFactory: NSObject, FlutterPlatformViewFactory {
     }
 }
 
-class FLNativeView: NSObject, FlutterPlatformView {
+class EmailLinkText: NSObject, FlutterPlatformView {
     private var _view: UIView
     private var _args: Dictionary<String, AnyObject>
 
@@ -58,13 +58,15 @@ class FLNativeView: NSObject, FlutterPlatformView {
     }
 
     func createNativeView(view _view: UIView){
-        let selectableNativeText = SelectableLabel()
+        let textField = UITextField()
         
         let content = _args["content"] as! String? ?? "-"
-        selectableNativeText.text = "Hi, My name is Angga"
-        selectableNativeText.textColor = UIColor.black
-        selectableNativeText.textAlignment = .center
-        selectableNativeText.frame = CGRect(x: 0, y: 0, width: 300, height: 24.0)
-        _view.addSubview(selectableNativeText)
+        textField.text = "angga@gmail.com"
+        textField.isEnabled = true
+        textField.textColor = UIColor.black
+        textField.textAlignment = .center
+        textField.frame = CGRect(x: 0, y: 0, width: 300, height: 24.0)
+        
+        _view.addSubview(textField)
     }
 }

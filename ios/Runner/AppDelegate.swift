@@ -16,6 +16,11 @@ import Flutter
                   factory,
                   withId: "text-native-view")
       
+      let factoryEmailText = EmailLinkTextFactory(messenger: registrar!.messenger())
+      registrar?.register(
+                  factoryEmailText,
+                  withId: "email-text-native-view")
+      
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
